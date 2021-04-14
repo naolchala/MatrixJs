@@ -1,6 +1,9 @@
 {
   "name": "matrix",
+  "author": "naolchala",
+  "description": "Small Javascript libray for computing matrixes",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }

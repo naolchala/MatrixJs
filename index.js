@@ -26,7 +26,7 @@ class Matrix {
 		}
 	}
 
-	inverse(matrix = this.matrix) {
+	inverse(replaceOriginal = false, matrix = this.matrix) {
 		let inverted = [];
 		let adjoint = this.adjoint(matrix);
 		let D = this.det(matrix);
@@ -35,6 +35,10 @@ class Matrix {
 			for (let j = 0; j < adjoint[0].length; j++) {
 				inverted[i].push(adjoint[i][j] / D);
 			}
+		}
+
+		if (replaceOriginal) {
+			this.matrix = inverted;
 		}
 
 		return inverted;
@@ -64,7 +68,7 @@ class Matrix {
 	}
 
 	cofactor(row, col, matrix = this.matrix) {
-		let minor = this.minor(row, col);
+		let minor = this.minor(row, col, matrix);
 		let sign = Math.pow(-1, row + col);
 
 		return minor * sign;
@@ -110,30 +114,4 @@ class Matrix {
 	}
 }
 
-function add(matrix1, matrix2) {
-	let matrix = [];
-	if (matrix1.size() === matrix2.size()) {
-      console.log(matrix1.size());
-      console.log(matrix2.size());
-		for (let i = 0; i < matrix2.size()[0]; i++) {
-			matrix.push([]);
-			for (let j = 0; j < matrix2.size()[1]; i++) {
-				matrix[i].push(matrix1[i][j] + matrix2[i][j]);
-			}
-		}
-		return matrix;
-	}
-}
-
-let a = add(
-	new Matrix([
-		[1, 2, 3],
-		[4, 5, 6],
-	]),
-	new Matrix([
-		[4, 5, 6],
-		[7, 8, 9],
-	])
-);
-
-console.log(a);
+export default Matrix;
