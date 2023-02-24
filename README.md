@@ -11,7 +11,7 @@ MatrixJs can do basic computing of matrix. such as - Finding Determinant, Transp
 1. First We Import `Matrix` from MatrixJs
 
 ```js
-import Matrix from "./MatrixJS";
+import Matrix from "NMatrixJS";
 ```
 
 2. To Create a Matrix we initate a Matrix class with 2 Dimenstional Array
